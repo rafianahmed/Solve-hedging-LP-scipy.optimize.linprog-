@@ -1,0 +1,70 @@
+{
+  "scenarioName": "Sample Hedging Case",
+  "solverMode": "auto",
+  "lambdaResidual": 80,
+  "gammaTurnover": 1,
+  "activationPenalty": 0.25,
+  "budgetLimit": 200,
+  "maxInstruments": 3,
+  "pieceSegments": 2,
+  "factors": [
+    { "name": "delta", "current": 15, "target": 0, "weight": 2, "exact": false },
+    { "name": "vega", "current": -8, "target": 0, "weight": 3, "exact": false },
+    { "name": "beta", "current": 12, "target": 0, "weight": 1.5, "exact": false },
+    { "name": "fx", "current": 20, "target": 0, "weight": 2.5, "exact": true }
+  ],
+  "instruments": [
+    {
+      "name": "ES_Futures",
+      "cost": 2,
+      "lower": -100,
+      "upper": 100,
+      "prev": 5,
+      "lot": 1,
+      "fixedCost": 0.8,
+      "piece1Cap": 20,
+      "piece1Cost": 2,
+      "piece2Cost": 2.8,
+      "loadings": { "delta": -0.2, "vega": 0, "beta": -1.1, "fx": 0 }
+    },
+    {
+      "name": "SPY_Put",
+      "cost": 4.5,
+      "lower": 0,
+      "upper": 50,
+      "prev": 2,
+      "lot": 1,
+      "fixedCost": 1.5,
+      "piece1Cap": 10,
+      "piece1Cost": 4.5,
+      "piece2Cost": 6,
+      "loadings": { "delta": -0.6, "vega": 0.5, "beta": -0.4, "fx": 0 }
+    },
+    {
+      "name": "USDKRW_Forward",
+      "cost": 1.2,
+      "lower": -200,
+      "upper": 200,
+      "prev": 0,
+      "lot": 1,
+      "fixedCost": 0.4,
+      "piece1Cap": 50,
+      "piece1Cost": 1.2,
+      "piece2Cost": 1.5,
+      "loadings": { "delta": 0, "vega": 0, "beta": 0, "fx": -1 }
+    },
+    {
+      "name": "VIX_Call",
+      "cost": 3,
+      "lower": 0,
+      "upper": 40,
+      "prev": 1,
+      "lot": 1,
+      "fixedCost": 0.9,
+      "piece1Cap": 10,
+      "piece1Cost": 3,
+      "piece2Cost": 4.2,
+      "loadings": { "delta": 0, "vega": 1.1, "beta": -0.1, "fx": 0 }
+    }
+  ]
+}
